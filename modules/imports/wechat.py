@@ -50,19 +50,19 @@ class WeChat(Base):
             print("Importing {} at {}".format(row['商品'], row['交易时间']))
             meta = {}
             time = dateparser.parse(row['交易时间'])
-            meta['wechat_trade_no'] = row['交易单号']
-            meta['trade_time'] = row['交易时间']
-            meta['timestamp'] = str(time.timestamp()).replace('.0', '')
+            # meta['wechat_trade_no'] = row['交易单号']
+            # meta['trade_time'] = row['交易时间']
+            # meta['timestamp'] = str(time.timestamp()).replace('.0', '')
             account = get_account_by_guess(row['交易对方'], row['商品'], time)
             flag = "*"
             amount_string = row['金额(元)'].replace('¥', '')
             amount = float(amount_string)
 
-            if row['商户单号'] != '/':
-                meta['shop_trade_no'] = row['商户单号']
+            # if row['商户单号'] != '/':
+            #     meta['shop_trade_no'] = row['商户单号']
 
-            if row['备注'] != '/':
-                meta['note'] = row['备注']
+            # if row['备注'] != '/':
+            #     meta['note'] = row['备注']
 
             meta = data.new_metadata(
                 'beancount/core/testing.beancount',
@@ -125,4 +125,4 @@ class WeChat(Base):
                 transactions.append(entry)
 
         self.deduplicate.apply_beans()
-        return transactions
+        return sorted(transactions, key=lambda x: x.date)

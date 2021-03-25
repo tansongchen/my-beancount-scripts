@@ -36,7 +36,8 @@ accounts = {
     '余利宝': 'Assets:Bank:MyBank',
     '花呗': 'Liabilities:Company:Huabei',
     '建设银行': 'Liabilities:CreditCard:CCB',
-    '零钱': 'Assets:Balances:WeChat',
+    '零钱': 'Assets:Currency:WeChat',
+    '农业银行(8079)': 'Assets:Debit:ABC8079'
 }
 
 descriptions = {
@@ -49,8 +50,10 @@ descriptions = {
     '外卖订单': get_eating_account,
     '美团订单': get_eating_account,
     '上海交通卡发行及充值': 'Expenses:Transport:Card',
-    '地铁出行': 'Expenses:Transport:City',
+    '北京轨道交通': 'Expenses:Transport:Subway',
     '火车票': 'Expenses:Travel:Transport',
+    'FamilyMart': 'Expenses:Food:Groceries',
+    '洗衣': 'Expenses:Clothing:Laundry'
 }
 
 anothers = {

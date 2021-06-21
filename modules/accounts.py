@@ -1,6 +1,6 @@
 import re
 
-import dateparser
+# import dateparser
 
 
 def get_eating_account(from_user, description, time=None):
@@ -36,8 +36,10 @@ accounts = {
     '余利宝': 'Assets:Bank:MyBank',
     '花呗': 'Liabilities:Company:Huabei',
     '建设银行': 'Liabilities:CreditCard:CCB',
-    '零钱': 'Assets:Currency:WeChat',
-    '农业银行(8079)': 'Assets:Debit:ABC8079'
+    '零钱': 'Assets:Currencies:WeChat',
+    '农业银行(8079)': 'Assets:Debits:ABC8079',
+    '招商银行(8843)': 'Assets:Debits:CMB8843',
+    '/': 'Unknown'
 }
 
 descriptions = {

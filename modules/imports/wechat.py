@@ -2,10 +2,10 @@ import calendar
 import csv
 import re
 from zipfile import ZipFile
-from datetime import date
+from datetime import date, datetime
 from io import BytesIO, StringIO
 
-import dateparser
+# import dateparser
 from beancount.core import data
 from beancount.core.data import Note, Transaction
 
@@ -49,7 +49,8 @@ class WeChat(Base):
         for row in reader:
             print("Importing {} at {}".format(row['商品'], row['交易时间']))
             meta = {}
-            time = dateparser.parse(row['交易时间'])
+            # time = dateparser.parse(row['交易时间'])
+            time = datetime.fromisoformat(row['交易时间'])
             # meta['wechat_trade_no'] = row['交易单号']
             # meta['trade_time'] = row['交易时间']
             # meta['timestamp'] = str(time.timestamp()).replace('.0', '')

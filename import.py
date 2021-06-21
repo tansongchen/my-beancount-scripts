@@ -6,15 +6,15 @@ from beancount import loader
 from beancount.core import data
 from beancount.parser import parser, printer
 
-from modules.imports.alipay import Alipay
-#from modules.imports.ccb_debit import CCBDebit
-from modules.imports.citic_credit import CITICCredit
-from modules.imports.cmb_credit import CMBCredit
-from modules.imports.cmbc_credit import CMBCCredit
-from modules.imports.icbc_credit import ICBCCredit
-from modules.imports.icbc_debit import ICBCDebit
+# from modules.imports.alipay import Alipay
+# from modules.imports.ccb_debit import CCBDebit
+# from modules.imports.citic_credit import CITICCredit
+# from modules.imports.cmb_credit import CMBCredit
+# from modules.imports.cmbc_credit import CMBCCredit
+# from modules.imports.icbc_credit import ICBCCredit
+# from modules.imports.icbc_debit import ICBCDebit
 from modules.imports.wechat import WeChat
-from modules.imports.yuebao import YuEBao
+# from modules.imports.yuebao import YuEBao
 
 parser = argparse.ArgumentParser("import")
 parser.add_argument("path", help="CSV Path")
@@ -25,8 +25,9 @@ args = parser.parse_args()
 
 entries, errors, option_map = loader.load_file(args.entry)
 
-importers = [Alipay, WeChat, CITICCredit, CMBCCredit,
-             CMBCredit, YuEBao, ICBCCredit, ICBCDebit]#, CCBDebit]
+# importers = [Alipay, WeChat, CITICCredit, CMBCCredit,
+            #  CMBCredit, YuEBao, ICBCCredit, ICBCDebit, CCBDebit]
+importers = [WeChat]
 instance = None
 for importer in importers:
     try:
